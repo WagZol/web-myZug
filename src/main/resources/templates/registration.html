@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="state" th:content="${param.state}">
+    <title>registration</title>
+
+</head>
+
+<body>
+<form th:action="@{/registration}" th:object="${userToRegister}" method="post" id="register-form">
+
+    <div class="registration attributes"></div>
+
+    <div class="controls" style="margin: auto;">
+
+
+        <div class="row" style="margin-bottom: 30px">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <input type="text" id="form_registration_avatar_upload" class="form-control" th:field="*{avatar}"
+                           style="display: none;"/>
+                </div>
+                <input type="file" class="filepond"
+                       id="form-registration-avatar-upload-filepond" accept="image/png, image/jpeg, image/gif"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_registration_name">Felhasználónév</label> <input
+                        th:classappend="${#fields.hasErrors('userName')}? 'is-invalid':''"
+                        id="form_registration_name" type="text" class="form-control"
+                        th:field="*{userName}" autocomplete="new-userName">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('userName')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_registration_email">Email</label> <input
+                        th:classappend="${#fields.hasErrors('email')}? 'is-invalid':''"
+                        id="form_registration_email" type="text" class="form-control" th:field="*{email}"
+                >
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('email')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_registration_password">Jelszó</label> <input
+                        th:classappend="${#fields.hasErrors('password')}? 'is-invalid':''"
+                        id="form_registration_password" type="password" class="form-control" th:field="*{password}"
+
+                        data-error="A jelszó megadása szükséges!" autocomplete="new-password">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('password')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_registration_password_confirm">Jelszó megerősítése</label> <input
+                        th:classappend="${#fields.hasErrors('confirmPassword')}? 'is-invalid':''"
+                        id="form_registration_password_confirm" type="password" class="form-control"
+                        th:field="*{confirmPassword}"
+                        data-error="A jelszó megerősítése szükséges!">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('confirmPassword')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row" style="margin-top: 20px">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+
+                <div class="row h-100">
+                    <div class="col-2" style="margin-top: auto; margin-bottom: auto;">
+                        <div class="form-group">
+                            <input id="form_registration_GDPR_checkbox" type="checkbox" class="form-control"
+                                   th:classappend="${#fields.hasErrors('terms')}? 'is-invalid':''"
+                                   th:field="*{terms}"
+                            >
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <label
+                                th:style="${#fields.hasErrors('terms')} ? 'color: #dc3545' : ''">
+                            Elfogadom az ÁSZF-et és egyetértek az Adatvédelmi nyilatkozattal.</label>
+                    </div>
+                </div>
+                <div class="row h-100">
+                    <div class="col-12 invalid-feedback"
+                         th:styleappend="${#fields.hasErrors('terms')}? 'display: block' : 'display: none'"
+                         th:each="error : ${#fields.errors('terms')}"
+                         th:text="${error}"
+                    >
+                        Validation error
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0">
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12" style="text-align: center;">
+                <button type="submit" class="btn btn-success btn-send" disabled>Regisztrálás</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+    </div>
+</form>
+
+
+<button type="button" id="modal-activator-button" class="btn btn-primary" data-toggle="modal"
+        data-target="#registrationSuccesModal" style="display: none">
+    showModal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="registrationSuccesModal" tabindex="-1" role="dialog"
+     aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">Sikeres regisztráció!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Ok
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

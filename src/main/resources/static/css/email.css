@@ -1,0 +1,15 @@
+#contact-form ::-webkit-input-placeholder {
+	font-size: 0.8em;
+}
+
+#contact-form ::-moz-placeholder {
+	font-size: 0.8em;
+}
+
+#contact-form :-ms-input-placeholder {
+	font-size: 0.8em;
+}
+
+#contact-form ::placeholder {
+	font-size: 0.8em;
+}

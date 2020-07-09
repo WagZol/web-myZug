@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="state" th:content="${param.state}">
+    <title>email</title>
+
+</head>
+
+<body>
+    <form th:action="@{/email}" th:object="${email}" method="post" id="email-form" style="padding: 10px">
+
+        <div class="messages"></div>
+
+        <div class="controls">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="name">Név</label>
+                        <input id="name" type="text" name="name" class="form-control"
+                            th:classappend="${#fields.hasErrors('name')}? 'is-invalid':''"
+                            th:field="*{name}"
+                            placeholder="Adja meg a nevét">
+                        <div class="help-block with-errors"></div>
+                        <div class="invalid-feedback" th:each="error : ${#fields.errors('name')}"
+                             th:text="${error}">Validation error
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email-from">Feladó email címe</label>
+                        <input id="email-from" type="email" name="emailFrom" class="form-control"
+                            th:classappend="${#fields.hasErrors('emailFrom')}? 'is-invalid':''"
+                            th:field="*{emailFrom}"
+                            placeholder="Adjon meg egy kapcsolattartó emailcímet">
+                        <div class="help-block with-errors"></div>
+                        <div class="invalid-feedback" th:each="error : ${#fields.errors('emailFrom')}"
+                             th:text="${error}">Validation error
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="subject">Tárgy</label>
+                        <input id="subject" type="text" name="subject" class="form-control"
+                            th:classappend="${#fields.hasErrors('subject')}? 'is-invalid':''"
+                            th:field="*{subject}"
+                            placeholder="Adja meg a levél tárgyát">
+                        <div class="help-block with-errors"></div>
+                        <div class="invalid-feedback" th:each="error : ${#fields.errors('subject')}"
+                             th:text="${error}">Validation error
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="message">Üzenet</label>
+                        <textarea id="message" name="message" class="form-control"
+                            th:classappend="${#fields.hasErrors('message')}? 'is-invalid':''"
+                            th:field="*{message}"
+                            placeholder="Adja meg az üzenet szövegét" rows="4"></textarea>
+                        <div class="help-block with-errors"></div>
+                        <div class="invalid-feedback" th:each="error : ${#fields.errors('message')}"
+                             th:text="${error}">Validation error
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <input id="hasCopy" name="hasCopy" type="checkbox"
+                                  th:classappend="${#fields.hasErrors('hasCopy')}? 'is-invalid':''"
+                                  th:field="*{hasCopy}">
+                        <label for="hasCopy">Kérek másolatot a fent megadott "feladó" email címre</label>
+                        <div class="help-block with-errors"></div>
+                        <div class="invalid-feedback" th:each="error : ${#fields.errors('hasCopy')}"
+                             th:text="${error}">Validation error
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-success btn-send" value="Üzenet küldése">
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <button type="button" id="modal-activator-button" class="btn btn-primary" data-toggle="modal"
+            data-target="#emailSuccesModal" style="display: none">
+        showModal
+    </button>
+
+    <!-- Modal -->
+	<div class="modal fade" id="emailSuccesModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+				</div>
+				<div class="modal-body">
+                    Az üzeneted sikeresen kézbesítve lett, hamrosan reagálni fogok rá!
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+                            onclick="$('#emailSuccesModal').modal('hide');">Ok</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

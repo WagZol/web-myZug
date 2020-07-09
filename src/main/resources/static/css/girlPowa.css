@@ -1,0 +1,12 @@
+@import "https://fonts.googleapis.com/css?family=Spicy+Rice:300,400,500,600,700";
+
+body.theme-girlPowa {
+	--dark-text: #24004d;;
+	--light-text: #fff;
+	--darkest-bg: #0b001a;
+	--darker-bg:#24004d;
+	--lightest-bg:#f9ccff;
+	--hover-bg: #ff00ea;
+	--sidebar-img: url("/image/girlPowaSidebarBackground.jpg");
+	--font-family: 'Spicy Rice', "Arial Black" ;
+}

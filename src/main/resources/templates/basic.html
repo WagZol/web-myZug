@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf_token" th:content="${_csrf.token}">
+    <meta name="csrf_header" th:content="${_csrf.headerName}">
+    <meta id="page_param" th:content="${param.page}">
+
+    <title>myZug</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.css"/>
+
+    <!-- Filepond CSS -->
+    <link href="css/filepond.css" rel="stylesheet">
+    <link href="css/filepond-plugin-image-preview.min.css" rel="stylesheet">
+    <link href="css/filepond-plugin-file-poster.css" rel="stylesheet">
+
+
+    <!-- Our Custom CSS -->
+    <link href="css/basic.css" rel="stylesheet"/>
+    <link href="css/deepOceanTheme.css" rel="stylesheet"/>
+    <link href="css/fontawsome.css" rel="stylesheet">
+
+    <!-- Image preloads -->
+
+    <link rel="preload" as="image" href="image/girlPowaSidebarBackground.jpg">
+    <link rel="preload" as="image" href="image/naturalGreenSidebarBackground.jpg">
+    <link rel="preload" as="image" href="image/ProfilSmall.jpg">
+
+    <link rel="preload" as="image" href="image/csaladCompressed.jpg">
+    <link rel="preload" as="image" href="image/cleanCodeMeetUpCompressed.jpg">
+    <link rel="preload" as="image" href="image/szentkiralyszabadjaCompressed.jpg">
+    <link rel="preload" as="image" href="image/fuveszkertCompressed.jpg">
+    <link rel="preload" as="image" href="image/epamItNightChallangeCompressed.jpg">
+    <link rel="preload" as="image" href="image/halloween2016.jpg">
+    <link rel="preload" as="image" href="image/paintball2015Compressed.jpg">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" class="hidden-on-print">
+
+        <div class="sidebar-header">
+            <a href="home" class="logo home navLink" style="text-align: center;">myZug</a>
+            <div id="user-indicator"></div>
+        </div>
+        <div class="sidebar-body">
+            <ul class="list-unstyled components">
+                <li>
+                    <div id="auth-informations-and-handlers">
+                        <div sec:authorize="isAuthenticated()">
+                            <a href="#user-data-sidebar-submenu" data-toggle="collapse"
+                               aria-expanded="false" class="dropdown-toggle" id="user-data-sidebar"
+                            >
+                                <th:block th:with="auth=${#authentication.getPrincipal()}">
+                                    <img th:src="${auth=='anonymousUser'? 'userNotFound' :
+                            (auth.avatar==''?'/image/defaultAvatar.png':auth.avatar)}"
+                                         class="user-avatar">
+                                </th:block>
+                                <span sec:authentication="name" th:remove="tag">userName</span>
+                            </a>
+                            <ul class="collapse list-unstyled" id="user-data-sidebar-submenu">
+
+                                <li><a href="profile" id="profile-button-sidebar" class="navLink"> Profil </a></li>
+                                <li><a href="logout" id="logout-button-sidebar"
+                                       class="logout-button">
+                                    Kijelentkezés </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a sec:authorize="isAnonymous()" onclick="return triggerLogin();"><i
+                                class="fas fa-sign-in-alt"></i>Bejelentkezés
+                        </a>
+                        <a sec:authorize="isAnonymous()" href="registration" class="navLink register"><i
+                                class="fas fa-user-plus"></i>Regisztráció
+                        </a>
+                    </div>
+                    <a href="#home-submenu" data-toggle="collapse"
+                       aria-expanded="false" class="dropdown-toggle"> <i
+                            class="fas fa-briefcase"></i> Önéletrajz
+                    </a>
+                    <ul class="collapse list-unstyled" id="home-submenu">
+                        <li><a href="timeline" class="navLink"> Idővonal </a>
+                        </li>
+                        <li><a href="standardCV" class="navLink">
+                            Standard </a></li>
+                        <li><a href="motivation" class="navLink">
+                            Motiváció </a></li>
+                    </ul>
+                    <a href="email" class="navLink"> <i
+                            class="fab fa-telegram-plane"></i> Email
+                    </a>
+                    <a href="notes" class="navLink"> <i
+                            class="fas fa-copy"></i> Jegyzetek
+                    </a>
+                    <a href="#theme-submenu" data-toggle="collapse"
+                       aria-expanded="false" class="dropdown-toggle"> <i
+                            class="fas fa-images"></i> Témák
+                    </a>
+                    <ul class="collapse list-unstyled" id="theme-submenu">
+                        <li><a href="deepOcean" class="theme-toggle"> <i
+                                class="fas fa-circle themeshortcut" style="color: #2b5bc2"></i>
+                            deepOcean
+                        </a></li>
+                        <li><a href="naturalGreen" class="theme-toggle"> <i
+                                class="fas fa-circle themeshortcut" style="color: #2bc233"></i>
+                            naturalGreen
+                        </a></li>
+                        <li><a href="girlPowa" class="theme-toggle"> <i
+                                class="fas fa-circle themeshortcut" style="color: #a42bc2"></i>
+                            girlPowa
+                        </a></li>
+                    </ul>
+                    <a href="about" class="navLink"> <i
+                            class="fas fa-info-circle"></i> Info
+                    </a>
+                </li>
+            </ul>
+
+            <div class="web">
+                <a href="https://www.hackerrank.com/zoltwagner"> <i
+                        class="fab fa-hackerrank"></i>
+                </a> <a href="https://github.com/WagZol"> <i
+                    class="fab fa-github-square"></i>
+            </a> <a href="https://gitlab.com/WagZol"> <i class="fab fa-gitlab"></i>
+            </a> <a href="https://www.linkedin.com/in/zolt%C3%A1n-wagner-558b79195/">
+                <i class="fab fa-linkedin"></i>
+            </a> <a href="https://www.facebook.com/zoltan.wagner.10"> <i
+                    class="fab fa-facebook"></i>
+            </a>
+            </div>
+        </div>
+
+
+    </nav>
+    <!-- Page Content  -->
+    <div id="content">
+        <div id="content-header-wrapper" class="hidden-on-print" style="min-height: 10px; min-width: 100px">
+            <div class="content-header  container-fluid">
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-primary city-selector-btn smallScreen"
+                            data-toggle="modal" data-target="#citySelectorModal">Település
+                    </button>
+                </div>
+                <div class="row" style="width: 100%; margin-left: 0">
+
+                    <!-- SidebarButton -->
+                    <div class="col-4 collapse-btn-col">
+
+                        <button type="button" id="sidebarCollapse"
+                                class="btn-round rotate btn-sidebar-collapse">
+
+                            <i class="fas fa-chevron-circle-left" style="margin: auto"></i>
+                        </button>
+                    </div>
+
+                    <!-- Weather & Location -->
+                    <div class="weather-forecast col-4">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary city-selector-btn bigScreen"
+                                data-toggle="modal" data-target="#citySelectorModal">Település
+                        </button>
+                        <img src="" class="weatherIcon"> <span class="temperature"></span>
+                    </div>
+
+                    <!-- Date & name -->
+                    <div class="date col-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="citySelectorModal" tabindex="-1" role="dialog"
+     aria-labelledby="citySelectorModalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Helymeghatározás</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="city-selector">
+                    <p style="font-size: 0.7em">Ha az IP cím alapján talált város
+                        nem fedi a valós lokációdat és igényled a pontos időjárás
+                        meghatározást, kérlek válaszd ki a várost ahol tartózkodsz!</p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control city-searchBar"
+                                       placeholder="Keresendő város neve"
+                                       style="float:left; width: calc(100% - 1.5rem); margin-right: 5px;">
+                                <a onclick="return triggerGeoLocationNavbarUpdate()">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                </a>
+                                <div class="invalid-feedback" style="float: right">Ez a város nem szerepel az
+                                    adatázisban. Ellenőrizd hogy helyesen írtad e vagy add meg egy
+                                    másik közeledben levő város nevét
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label style="font-size: 0.7em; font-weight: bold;">Találatok:
+                            </label>
+                            <div class="cities" style="font-size: 0.7em"></div>
+                        </div>
+                        <div class="col-6">
+                            <label style="font-size: 0.7em; font-weight: bold;">Megyeszékhelyek:
+                            </label>
+                            <div style="font-size: 0.7em">
+                                <a class="city">Békéscsaba</a><br> <a class="city">Budapest</a><br>
+                                <a class="city">Debrecen</a><br> <a class="city">Eger</a><br>
+                                <a class="city">Győr</a><br> <a class="city">Kaposvár</a><br>
+                                <a class="city">Kecskemét</a><br> <a class="city">Miskolc</a><br>
+                                <a class="city">Nyíregyháza</a><br> <a class="city">Pécs</a><br>
+                                <a class="city">Salgótarján</a><br> <a class="city">Szeged</a><br>
+                                <a class="city">Szekszárd</a><br> <a class="city">Székesfehérvár</a><br>
+                                <a class="city">Szolnok</a><br> <a class="city">Szombathely</a><br>
+                                <a class="city">Tatabánya</a><br> <a class="city">Veszprém</a><br>
+                                <a class="city">Zalaegerszeg</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary city-choosen-btn">Ok</button>
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Kilépés
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+     aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Bejelentkezés</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="login-modal-body">
+                <form th:action="@{/login}" th:object="${userToLogin}" method="post" id="login-form" targetUrl="">
+                    <div class="messages"></div>
+                    <div class="controls" id="login-form-elements">
+                        <div class="form-group" id="username-group">
+                            <label for="userName">Felhasználónév</label>
+                            <input th:classappend="${#fields.hasErrors('userName')}? 'is-invalid':''"
+                                   th:field="*{userName}" placeholder="Felhasználónév"
+                                   id="userName" type="text" name="username" class="form-control"
+                                   autocomplete="new-userName">
+
+                            <div class="help-block with-errors"></div>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('userName')}"
+                                 th:text="${error}">Validation error
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="password-group">
+                            <label for="password">Jelszó</label>
+                            <input id="password" type="password" name="password" class="form-control"
+                                   th:classappend="${#fields.hasErrors('password')}? 'is-invalid':''"
+                                   placeholder="Fiókod jelszava" th:field="*{password}"
+                                   autocomplete="new-password">
+                            <div class="help-block with-errors"></div>
+                            <div class="invalid-feedback" th:each="error : ${#fields.errors('password')}"
+                                 th:text="${error}">Validation error
+                            </div>
+                        </div>
+
+                        <div id="global_form_messages"
+                             th:style="${loginModalMessage}!=null? 'display: block':'display: none'">
+                            <span
+                                    th:text="${loginModalMessage}"
+                                    style="color: #6eac2c"
+                            >message</span>
+                        </div>
+
+                    </div>
+                </form>
+
+                <a href="passwordReset" onclick="return triggerPasswordReset()" id="forgotten-password">Elfelejtette a
+                    jelszavát?</a>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="login-submit" form="login-form" class="btn btn-primary login-submit" href="">
+                    Bejelentkezés
+                </button>
+                <button type="button" class="btn btn-secondary" id="login-close"
+                        data-dismiss="modal">Kilépés
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/jquery/jquery.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.js"></script>
+<script type="module" src="js/basic.js"></script>
+<script src="js/moduls/jquery.nicescroll.js"></script>
+<script src="js/moduls/resizeObserver.js"></script>
+
+<script src="js/moduls/filepond-plugin-file-encode.min.js"></script>
+<script src="js/moduls/filepond-plugin-file-validate-size.min.js"></script>
+<script src="js/moduls/filepond-plugin-file-validate-type.min.js"></script>
+<script src="js/moduls/filepond-plugin-image-crop.min.js"></script>
+<script src="js/moduls/filepond-plugin-image-exif-orientation.min.js"></script>
+<script src="js/moduls/filepond-plugin-image-preview.min.js"></script>
+<script src="js/moduls/filepond-plugin-image-resize.min.js"></script>
+<script src="js/moduls/filepond-plugin-image-transform.min.js"></script>
+<script src="js/moduls/filepond-plugin-file-poster.min.js"></script>
+<script src="js/moduls/filepond.js"></script>
+<script src="js/moduls/jquery.serializejson.js"></script>
+
+<script>
+    const htmlBody = $('body');
+
+    function triggerLogin() {
+        htmlBody.trigger("login");
+        return false;
+    }
+
+    function triggerPasswordReset() {
+        htmlBody.trigger("passwordReset")
+        return false;
+    }
+
+    function triggerGeoLocationNavbarUpdate() {
+        htmlBody.trigger("updateByGeolocation")
+        return false;
+    }
+
+</script>
+
+</body>
+
+</html>

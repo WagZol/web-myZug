@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="state" th:content="${param.state}">
+    <title>profile</title>
+
+</head>
+
+<body>
+
+<form th:action="@{/profile}" th:object="${authenticatedUser}" method="post" id="profile-form">
+
+    <div class="profile attributes"></div>
+
+    <div class="controls" style="margin: auto;">
+
+
+        <div class="row" style="margin-bottom: 30px">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <input type="text" id="form_profile_avatar_upload" class="form-control" th:field="*{avatar}"
+                           style="display: none;"/>
+                </div>
+                <input type="file" class="filepond"
+                       id="form-profile-avatar-upload-filepond" accept="image/png, image/jpeg, image/gif"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_profile_name">Felhasználónév</label> <input
+                        th:classappend="${#fields.hasErrors('userName')}? 'is-invalid':''"
+                        id="form_profile_name" type="text" class="form-control"
+                        th:field="*{userName}" autocomplete="new-userName">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('userName')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_profile_email">Email</label> <input
+                        th:classappend="${#fields.hasErrors('email')}? 'is-invalid':''"
+                        id="form_profile_email" type="text" class="form-control" th:field="*{email}"
+                >
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('email')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_profile_password">Új jelszó</label> <input
+                        th:classappend="${#fields.hasErrors('password')}? 'is-invalid':''"
+                        id="form_profile_password" type="password" class="form-control" th:field="*{password}"
+                        data-error="A jelszó megadása szükséges!" autocomplete="new-password">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('password')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row" id="password-confirmation-row">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+                <div class="form-group">
+                    <label for="form_profile_confirm_password">Új jelszó megerősítése</label> <input
+                        th:classappend="${#fields.hasErrors('confirmPassword')}? 'is-invalid':''"
+                        id="form_profile_confirm_password" type="password" class="form-control"
+                        th:field="*{confirmPassword}" data-error="A jelszó megadása szükséges!"
+                        autocomplete="new-password">
+                    <div class="help-block with-errors"></div>
+                    <div class="invalid-feedback" th:each="error : ${#fields.errors('confirmPassword')}"
+                         th:text="${error}">Validation error
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+
+        <div class="row" style="margin-top: 30px">
+            <div class="col-lg-4 col-md-2 col-sm-0"></div>
+            <div class="col-lg-4 col-md-8 col-sm-12" style="text-align: center;">
+                <button type="submit" class="btn btn-success btn-send" disabled>Módosítások mentése</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        </div>
+    </div>
+</form>
+
+
+<button type="button" id="modal-activator-button" class="btn btn-primary" data-toggle="modal"
+        data-target="#profileUpdateSuccesModal" style="display: none">
+    showModal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="profileUpdateSuccesModal" tabindex="-1" role="dialog"
+     aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">A profilja sikeresen frissült!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        onclick="$('#profileUpdateSuccesModal').modal('hide');">Ok
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

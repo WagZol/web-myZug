@@ -1,0 +1,13 @@
+@import "https://fonts.googleapis.com/css?family=Monoton:300,400,500,600,700";
+
+.theme-deepOcean {
+	--dark-text: #00264d;
+	--light-text: #fff;
+	--darkest-bg: #000d1a;
+	--darker-bg:#00264d;
+	--lightest-bg:#ccccff;
+	--hover-bg: #00b8e6;
+	--sidebar-img: url("/image/deepOceanSidebarBackground.jpg");
+	--font-family: 'Righteous', sans-serif;
+}
+

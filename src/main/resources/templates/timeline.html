@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>timeline</title>
+</head>
+
+<body>
+<div>
+    Amennyiben felmerül önben a kérdés hogy egy magamfajta járművillamossági szakmában 12 éve dolgozó ember hogy jön a
+    programozáshoz, hol és mikor kezdődött ez a hobbi, és mennyire gondolom mindezt komolyan, itt minderre választ
+    találhat rá.
+
+    Az idővonalon elhelyezkedő gombokkal lehet részletezni az adott eseményt, illetve "összecsukni" azt, illetve a
+    szűrővel csak azok az életesemények kerülnek "kibontásra" amik érdekelhetik önt.
+</div>
+<div class="separator">
+</div>
+
+<div class="flex-container timeline">
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input filter" id="personal">
+        <label class="custom-control-label" for="personal">Magánélet</label>
+    </div>
+
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input filter" id="education">
+        <label class="custom-control-label" for="education">Iskola</label>
+    </div>
+
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input filter" id="profession">
+        <label class="custom-control-label" for="profession">Tapasztalat</label>
+    </div>
+
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input filter" id="job">
+        <label class="custom-control-label" for="job">Munka</label>
+    </div>
+</div>
+
+
+<div class="separator">
+</div>
+<div class="conatiner">
+
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line" style="margin-top: 5px;"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".born"
+                        class="btn-round center btn-timeline personal center" id="born">
+                    <i class="fas fa-baby"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="born-header">
+                    Megszülettem(1987)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px;">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse born">
+            <p>1987 október 28.-án Szegeden láttam meg a napvilágot ikertestvéremmel, ezzel a családban a gyerekek
+                száma 3-ra nőtt</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".elementary"
+                        class="btn-round center btn-timeline education center" id="elementary">
+                    <i class="fas fa-school"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="elementary-header">
+                    Általánosiskola(1994-2002)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse elementary">
+            <p>A Weöres Sándor általános iskolában kezdtem meg a tanulmányaims. Alsó tagozatban rajz fakultáción
+                vettem részt, felsőben részben az informatika tanáromnak hála erősen elkezdtem érdeklődni a
+                számitástechnika iránt. Az ő alapelve az volt hogy nem várja el, hogy fejből tudjuk a definíciókat,
+                elég ha tudjuk hol járhatunk utána(dolgozatok alkalmával tankönyv használata engedélyezett volt),
+                mivel az informatika olyan rohamosan változik, hogy pár év múlva az ott megszerzett tudásunk úgyis
+                elavulttá válik</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".enterprise"
+                        class="btn-round center btn-timeline profession center" id="enterprise">
+                    <i class="fas fa-laptop-code"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="enterprise-header">
+                    Basic(1998-2000)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse enterprise">
+            <p>Otthon megkaptuk az első számítógépünk, egy Enterprise 128-ast. Ezen a gépen bátyám példáját követve
+                basic nyelven megpróbáltam játékot írni, beszédet szimulálni, illetve megismerkedtem az egyszerűbb
+                ciklusokkal</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".ecdl"
+                        class="btn-round center btn-timeline profession center" id="ecdl">
+                    <i class="fas fa-scroll"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="ecdl-header">
+                    ECDL(2001)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse ecdl">
+            <p>Az informatika tanárom bíztatására nekiveselkedtem az ECDL vizsgának(alapszintű számítógép kezelői
+                vizsga) Amit nagyjából 1 év leforgása alatt mind a 12 moduljával befejeztem</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".high-school"
+                        class="btn-round center btn-timeline education center" id="high-school">
+                    <i class="fas fa-school"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="high-school-header">
+                    Középiskola(2002-2006)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse high-school">
+            <p>Mivel szerettem volna jobban megismerni az informatikát, így jelentkeztem a Déri Miksa Iprai
+                Szakközépiskolába, informatika szakra. Itt szintén szerencsém volt mivel egy olyan informatika
+                tanárt kaptam, aki nem bánta ha kultúráltan hangot adtunk annak ha egy programozói megoldás helyett
+                tudunk jobbat. Ezeken az órákon C nyelvet használtunk, amit hamar megszerettem, hiszen élveztem, hogy
+                valamiből kitünhetek a többiekhez képest. Érettségin a választott tantárgyam az informatika volt,
+                bár utólag bánom hogy nem próbáltam meg emeltszinten</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".technical-school"
+                        class="btn-round center btn-timeline education center" id="technical-school">
+                    <i class="fas fa-school"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="technical-school-header">
+                    Technikum(2006-2008)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse technical-school">
+            <p>Középsikolás éveim alatt megvettük az első számítógépünket ami nem volt a legjobb vásár, mivel
+                sokszor kellett szervízbe vinnünk. Itt ismerkedtem meg egy olyan közvetlen környezettel(fiatalos
+                légkör, nem volt feszültség, magas volt a szakmai tudás) ahol úgy éreztem szívesen dolgoznék. Ezért
+                jelentkeztem a Szegedi Gábor Dénes Szakközépiskolába műszaki számítástechnikai technikumra. Az első
+                évet sikeresen befejeztem, megismerve a digitális elektronika alapjait, de sajnos a szakom megszűnt
+                így átkerültem ipari elektronikai technikumra, ahol a második évben az analóg elektronikát,
+                erősítőket, passzív/aktív elemeket ismertem meg</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".job1"
+                        class="btn-round center btn-timeline job center" id="job1">
+                    <i class="fas fa-briefcase"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="job1-header">
+                    SZKT(2008-?)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse job1">
+            <p>A technikumi írásbeli vizsgám már meg volt de a szóbelim még nem, de igyekeztem, hogy minél hamarabb
+                el tudjak helyezkedni az újonnan szerzett szakmámmal, így jelentkeztem a Szegedi Közlekedési
+                Társaság-hoz. 1 éves elektronikai képzéssel a hátam mögött nehezen ismertem ki magam a kapcsolási
+                rajzokon és változastos járműparkon de végül felnőttem a feladathoz, és nagyjából 1-2 év alatt olyan
+                alkalmazott lettem akire bármikor rá mertek bízni önálló munkákat is.</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".language-exam"
+                        class="btn-round center btn-timeline profession center" id="language-exam">
+                    <i class="fas fa-scroll"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="language-exam-header">
+                    Nyelvvizsga(2009)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse language-exam">
+            <p>Az első hónapokban elkezdtem spórolni nyelvvizsgára. Egyfelől nem hangzott rosszul a fizetésemhez a
+                +5% másfelől szerettem az angol nyelvet, hiszen minden nap találkoztam vele akár alkatrész
+                leírásról, akár feliratos filmerkől volt szó</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".university"
+                        class="btn-round center btn-timeline education center" id="university">
+                    <i class="fas fa-school"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="university-header">
+                    Egyetem(2010-2011)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse university">
+            <p>2 év munka után úgy éreztem, nekem valami több kell, ennél többre vagyok hivatott és szerettem volna
+                visszakanyarodni a gyökereimhez. Végül az egyetemben láttam a megoldást, és jelentkeztem a Szegedi
+                Tudományi Egyetem Mérnökinformatika szakára. Az első félévben évfolyam első voltam, újra találkoztam
+                a C nyelvvel, megismertem az Assembly-t, és találkoztam az első OOP nyelvemmel a Java-val. Sajnos az
+                imperatív nyelvek után nem sikerült megértenem a OOP nyelvben rejlő lehetőségeket. Az egyetemen nem
+                elégedtem meg a magolással, meg akartam érteni mindent, és különösen élveztem a kutatómunkákat a
+                TIK-ben(egy-egy tananyag jegyzete hiányos volt, így eljártam a TIK-be, hogy teljes képet kaphassak.
+                Közben elköltöztem otthonról mert vágytam az önállóságra, és épp emiatt a munkám mellett levelezőn
+                tudtam csak tanulni. Sajnos ez lett a vesztem is, mivel 2010 decembertől 2011 áprilisig muszáj volt
+                minden nap túlóráznom, mert elmaradás volt a cég által vállalt munkáinkból így nem tudtam
+                felkészülni a vizsgákra és abba kellett hagynom a tanulmányaim. Megpróbáltam elfogadni a sorsom,
+                hogy szükség van ebben a világban szerelőkre is, és a kreativitásom troliszerelőként is kiélhetem.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".telecom"
+                        class="btn-round center btn-timeline job center" id="telecom">
+                    <i class="fas fa-briefcase"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="telecom-header">
+                    Másodállás(2014)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse telecom">
+            <p>Az előző év végén eljegyeztem a párom, és hogy tudjunk az esküvőre félretenni vállaltam másodállást a
+                Telecom Zrt.-nél, hibabejelentő callcenter-esként. 3 hónap után elkezdődött az esküvő szervezése és
+                a másodállás már okafogyottá vált</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".wedding"
+                        class="btn-round center btn-timeline personal center" id="wedding">
+                    <i class="fas fa-ring"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="wedding-header">
+                    Házasság(2014)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse wedding">
+            <p>3 év ismerettség után feleségül vettem a párom</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".codesys"
+                        class="btn-round center btn-timeline profession center" id="codesys">
+                    <i class="fas fa-laptop-code"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="codesys-header">
+                    Munkahelyi programozás(2015-?)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+            <div class="vertical-line"></div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 collapse codesys">
+            <p>Az egyetem után pár évig hanyagoltam a programozást, mert úgy éreztem félreismertem magam, nem ez a
+                nekem való munkakör, kevés vagyok hozzá. Végül nagyjából 5 év után jött egy lehetőség, hogy a trolik
+                diagnosztikai rendszerének a programozásához keresett a vezetőség egy vállalkozó szellemű embert. Az
+                alapok a fejemben voltak, és ki voltam éhezve a kihívásra. Úgy éreztem ahhoz, hogy egy csapat jól
+                működjön minden tagjának kicsit specializálódnia kell, és a múltam miatt azt gondoltam, ezt a
+                feladatot nekem találták ki. Kb 3 hónap alatt autodidakta módon a kevés leírás ellenére
+                szabadimdőmben sikerült annyira elsajátítanom a CodeSys 2.3 nyelvet, hogy 2 hét alatt meg tudtam
+                írni egy diagnosztikai szoftware-t grafikus visszajelzéssel. </p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+            <div class="vertical-line"></div>
+            <div style="height: 100%">
+                <button type="button" data-toggle="collapse" data-target=".hobby1"
+                        class="btn-round center btn-timeline profession center" id="hobby1">
+                    <i class="fas fa-laptop-code"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11">
+            <div>
+                <h5 class="timeline-header" id="hobby1-header">
+                    Hobbi programozás 1(2017-2018)
+                </h5>
+                <div class="underline"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse hobby1">
+        <p>Pár év után magabiztosabb lettem a CodeSys-ben és bonyolultabb feladatokat is meg tudtam
+            valósítani vele, viszont még mindig azt éreztem hogy nekem ez kevés. Keresni akartam egy hobbi
+            nyelvet, ami keresett. Néztem véleményket és a top 3 között találtam az egyetemi időkből ismert
+            Java nyelvet. Úgy éreztem, elérkezett az idő hogy újra megbírkózzak vele. Elkezdtem újra az
+            alapoktól az Agyhullám: Java című könyvvel, majd később egy debreceni egyetemi jegyzetből
+            tanultam. Azt éreztem készen állok egy komolyabb program megírására, és elkezdtem a torpedó
+            megírását. Elértem hogy a számítógép játékos bármilyen kinézetű hajókból álló szettet le
+            tudott tenni, de amint az emberi játékost akartam megírni elkedzett borulni minden. Éreztem hogy
+            egyre több a "törés" a kódban, és egy kis kutatómunka után ráakadtam a Clean Coding-ra mint megoldásra.
+        </p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".hobby2"
+                    class="btn-round center btn-timeline profession center" id="hobby2">
+                <i class="fas fa-laptop-code"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="hobby2-header">
+                Hobbi programozás 2(2018-2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse hobby2">
+        <p>Egy barátom segítségével megismertem a verziókezelést a Git Bash-on keresztül, illetve
+            gyakoroltam a MySql-t. Egy kisebb projekt erejéig(barátságos rivalizálás) programoztam
+            Pythonban.</p>
+
+        <p>Ezzel párhuzamosan be kellett látnom hogy az SZKT-nál nincs jövőm mint programozó. Rám ott
+            elsősorban szerelőként van szükség és csak másodsorban porgramozóként, így elhatároztam hogy
+            ahhoz hogy a hobbimat komolyan lehessen venni, nekem is komolyan kell gondolonom azt, hinnem
+            kell benne. Így még 2018 szeptemberétől beiratkoztam a Ruandernél pesten egy Java SE
+            tanfolyamra, és sikeresen elvégeztem azt.</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".Livi"
+                    class="btn-round center btn-timeline personal center" id="Livi">
+                <i class="fas fa-baby"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="Livi-header">
+                Bővül a család(2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse Livi">
+        <p>2019 februárjában megszületett a lányom és így egyszerre lett az életünk a feleségemmel
+            színesebb és bonyolultabb. Kicsit furán hangzik de legalább annyit tanulok tőle(türelem, empátia, önismeret)
+            mint ő tőlem</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".hobby3"
+                    class="btn-round center btn-timeline profession center" id="hobby3">
+                <i class="fas fa-scroll"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="hobby3-header">
+                Java EE(2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse hobby3">
+        <p>2019 áprilisában újabb Ruanderes tanfolyamra jelnetkeztem ezuttal a Java EE témájában. Előtte intenzíven
+            készültem hogy áthidaljam a Java SE és Java EE tudásom közti "szakadékot", így megismertem a Java-n
+            belül a szálkezelést, Locking mechanizmusokat, Lambda expression-t, Design Patterneket. Végül a
+            tanfolyamot júlusban sikeresen elvégeztem</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".hobby4"
+                    class="btn-round center btn-timeline profession center" id="hobby4">
+                <i class="fas fa-scroll"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="hobby4-header">
+                Új irány(2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse hobby4">
+        <p>A tanfolya végéhez közel újra ránéztem az összesítésekre és észrevettem hogy a Java iránti
+            kereslet folyamatosan csökken a script nyelvek javára, így elhatároztam hogy megismerkedek a
+            JavaScripttel(ES6). Erre tökéletes lehetőségnek bizonyult az Udemy online képzése amit kb 2
+            hónap alatt elvégeztem. Közben a példakódokon keresztül megismertem a Bootstrap és Skeleton
+            CSS framework alapjait.</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".hobby5"
+                    class="btn-round center btn-timeline profession center" id="hobby5">
+                <i class="fas fa-scroll"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="hobby5-header">
+                Hobbi programozás 3(2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1" style="min-height: 50px">
+        <div class="vertical-line"></div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse hobby5">
+        <p>Októberben egy barátommal együtt résztvettünk az epam it night challange rendezvényen, ahol
+            sajnos a figyelmetlenségünkből adódóan csak a középmezőnyben végeztünk(megismertem a Fastify illetve
+            Express server-eket, illetve a Node.js-t), de volt alkalmam a szervezőkkel beszélgetni és kiderült hogy
+            Java juniorként szükséges a Spring ismerete. Így újfent az Udemy-hez fordultam és nagyjából 1 hónap
+            alatt végig vittem egy alap Spring képzést ahol megismerkedte SpringBoot-al, a Spring MVC-vel, a Spring
+            DevTools-al, Mockito-val, JUnit tesztekkel, JPA-val, Spring Aspect-tel illetve a Maven-nel</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-3 col-md-2 col-lg-1" style="display: inline-block">
+        <div class="vertical-line" style="margin-bottom: 5px;"></div>
+        <div style="height: 100%">
+            <button type="button" data-toggle="collapse" data-target=".instructor"
+                    class="btn-round center btn-timeline profession center" id="instructor">
+                <i class="fas fa-scroll"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-9 col-md-10 col-lg-11">
+        <div>
+            <h5 class="timeline-header" id="instructor-header">
+                Oktató(2019)
+            </h5>
+            <div class="underline"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 col-md-2 col-lg-1">
+    </div>
+    <div class="col-9 col-md-10 col-lg-11 collapse instructor">
+        <p>2019 októberétől jelentkeztem a Szegedi Ipari Kamaránál Gyakorlati oktatói képzésre amit novemberben
+            sikeresen elvégeztem, így hivatalosan is oktathatok tanulókat</p>
+    </div>
+</div>
+</body>
+
+</html>

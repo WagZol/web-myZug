@@ -1,0 +1,12 @@
+@import "https://fonts.googleapis.com/css?family=Mystery+Quest:300,400,500,600,700";
+
+body.theme-naturalGreen {
+	--dark-text: #175719;
+	--light-text: #fff;
+	--darkest-bg: #114013;
+	--darker-bg:#185a1a;
+	--lightest-bg:#a7e7aa;
+	--hover-bg: #38c68d;
+	--sidebar-img: url("/image/naturalGreenSidebarBackground.jpg");
+	--font-family: 'Mystery Quest', "Palatino Linotype";
+}

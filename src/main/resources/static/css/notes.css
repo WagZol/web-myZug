@@ -1,0 +1,8 @@
+iframe#notes {
+	border: 1 var(--dark-text);
+	border-style: double;
+	border-radius: 25px;
+	padding: 10px;
+	background-color: var(--light-text);
+	border-radius: 25px;
+}
