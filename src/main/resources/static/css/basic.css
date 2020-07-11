@@ -31,38 +31,6 @@
 
 /* CUSTOM ELEMENTS*/
 
-/*html {
-    --dark-text: #00264d;
-    --light-text: #fff;
-    --darkest-bg: #000d1a;
-    --darker-bg:#00264d;
-    --lightest-bg:#ccccff;
-    --hover-bg: #00b8e6;
-    --sidebar-img: url("http://avante.biz/wp-content/uploads/Wallpapers-With-Circles/Wallpapers-With-Circles-001.jpg");
-    --font-family: 'Righteous', sans-serif;
-}*/
-
-/*
-::-webkit-scrollbar-track
-{
-	border-radius: 10px;
-	background-color: var(--lightest-bg);
-}
-
-::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: var(--lightest-bg);
-}
-
-::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-    background-color: var(--darker-bg);
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--darkest-bg);
-}*/
 .themeshortcut {
 	margin-left: 5px;
 }
@@ -174,10 +142,11 @@ a, a label {
 	border-color: var(--dark-text);
 }
 
-/*.center{
-    margin: auto;
-    text-align: center;
-}*/
+.btn-success, .btn-success.disabled, .btn.active{
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
 .center {
 	position: relative;
 	transform: translate(-50%, -50%);
@@ -296,6 +265,7 @@ body {
 	color: var(--light-text);
 	opacity: 0.2;
 }
+
 
 
 .filepond--root {

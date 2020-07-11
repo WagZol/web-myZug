@@ -14,7 +14,11 @@
 
 .carousel-caption {
 	color: var(--dark-text);
-	bottom: -65px;
+	/*bottom: -65px;*/
+	position: absolute;
+	top: 95%;
+	right: 0;
+	left: 0;
 }
 
 .carousel-inner {
